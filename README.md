@@ -44,8 +44,3 @@ La configuracion del despliegue esta en `serverless.yml` apuntando a AWS con run
 
 ---
 
-## Referencias
-
-- [Docker Docs](https://docs.docker.com/reference/dockerfile/)
-- [Serverless Framework Docs](https://www.serverless.com/framework/docs)
-- [AWS Lambda Docs](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html)
