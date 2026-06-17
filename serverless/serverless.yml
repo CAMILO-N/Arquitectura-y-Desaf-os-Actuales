@@ -1,0 +1,30 @@
+# serverless.yml — Configuración para Serverless Framework
+service: hello-microservice
+
+frameworkVersion: '3'
+
+provider:
+  name: aws                  # Cambiar a 'google' o 'azure' según necesidad
+  runtime: nodejs20.x
+  region: us-east-1          # Región AWS
+  stage: ${opt:stage, 'dev'} # dev | staging | prod
+
+# ── Funciones Lambda ────────────────────────────────────────────
+functions:
+  hello:
+    handler: handler.hello
+    description: "Endpoint GET /hello con parámetro name"
+    memorySize: 128          # MB (mínimo para funciones simples)
+    timeout: 10              # segundos
+    events:
+      - httpApi:
+          path: /hello
+          method: GET
+
+# ── Plugins opcionales ──────────────────────────────────────────
+# plugins:
+#   - serverless-offline     # Para probar en local: sls offline start
+
+# ── Variables de entorno ────────────────────────────────────────
+# environment:
+#   NODE_ENV: ${self:provider.stage}
